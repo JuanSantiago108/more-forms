@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 import Display from './Display'
 
 const Form1 = () => {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail ] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const [isSubmitted, setIsSubmitted ]= useState(false)
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail ] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [isSubmitted, setIsSubmitted ] = useState(false);
 
     const handlePassword = (e) =>{
         setPassword(e.target.value)
@@ -22,13 +22,13 @@ const Form1 = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(firstName.length > 3 && lastName.length > 3 && email.length > 5 && password.length >= 8 && password !== confirmPassword){
+        if(firstName.length > 3 && lastName.length > 3 && email.length > 5 && password.length >= 8 && password == confirmPassword){
             createUser();
+            setIsSubmitted(true);
         } else {
             alert("Please correct your form!")
         }
         console.log({firstName, lastName, email, password, confirmPassword})
-        setIsSubmitted(true);
     }
 
     const formMessage =()=>{
